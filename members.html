@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="https://img5.pic.in.th/file/secure-sv1/Nonsense-1.png">
+
+<title>Nonsense Member List</title>
+
+<style>.back-btn{
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    padding: 12px 26px;
+    background: linear-gradient(90deg, #00f0ff, #00c3ff);
+    color: #00111f;
+    border: none;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(0,240,255,0.6);
+}
+
+.back-btn:hover{
+    box-shadow: 0 0 25px rgba(0,240,255,0.9),
+                0 0 50px rgba(0,240,255,0.6);
+    transform: translateY(-2px);
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top, rgba(0,255,255,0.15), transparent 45%),
+        linear-gradient(to bottom,#00111f 0%,#000814 100%);
+    background-attachment: fixed;
+    color:white;
+}
+
+/* HEADER */
+.header{
+    text-align:center;
+    padding:100px 20px 60px;
+}
+
+.header h1{
+    font-size: clamp(60px, 8vw, 120px);
+    letter-spacing: 8px;
+    font-weight: bold;
+
+    filter: drop-shadow(0 0 10px #00f0ff)
+        drop-shadow(0 0 20px #00f0ff);
+
+    background: linear-gradient(
+        90deg,
+        #00f0ff,
+        #ffffff,
+        #00f0ff
+    );
+    background-size: 200% auto;
+
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine{
+    to{
+        background-position: 200% center;
+    }
+}
+
+@keyframes neonBlue{
+    from{
+        text-shadow:0 0 5px #00f0ff,
+                    0 0 10px #00f0ff;
+    }
+    to{
+        text-shadow:0 0 15px #00f0ff,
+                    0 0 30px #00f0ff;
+    }
+}
+
+.subtitle{
+    color:#00f0ff;
+    letter-spacing:4px;
+    margin-top:15px;
+    text-shadow:0 0 15px #00f0ff;
+}
+
+/* ===== SECTION SPACING FIX ===== */
+.section{
+    padding:100px 20px; /* เพิ่มความโล่ง */
+    text-align:center;
+}
+
+.section h2{
+    margin-bottom:15px; /* ระหว่าง HEAD กับ 4 MEMBERS */
+}
+
+.count{
+    margin-bottom:60px; /* ระหว่าง 4 MEMBERS กับ การ์ด */
+    font-size:14px;
+    letter-spacing:3px;
+    color:#aaa;
+}
+
+/* ===== TITLE ANIMATION ===== */
+
+@keyframes glowRed {
+    0%{ text-shadow:0 0 5px #ff0000,0 0 10px #ff0000; opacity:0.8; }
+    100%{ text-shadow:0 0 20px #ff0000,0 0 40px #ff1a1a,0 0 60px #ff0000; opacity:1; }
+}
+
+@keyframes glowYellow {
+    0%{ text-shadow:0 0 5px #ffd000,0 0 10px #ffd000; opacity:0.8; }
+    100%{ text-shadow:0 0 20px #ffd000,0 0 40px #ffea00,0 0 60px #ffd000; opacity:1; }
+}
+
+@keyframes glowBlue {
+    0%{ text-shadow:0 0 5px #00c8ff,0 0 10px #00c8ff; opacity:0.8; }
+    100%{ text-shadow:0 0 20px #00c8ff,0 0 40px #00e1ff,0 0 60px #00c8ff; opacity:1; }
+}
+
+.head-title{
+    color:#ff2b2b;
+    animation: glowRed 1.5s ease-in-out infinite alternate;
+}
+
+.support-title{
+    color:#ffd000;
+    animation: glowYellow 1.5s ease-in-out infinite alternate;
+}
+
+.member-title{
+    color:#00c8ff;
+    animation: glowBlue 1.5s ease-in-out infinite alternate;
+}
+
+.head-title,
+.support-title,
+.member-title{
+    font-size: clamp(40px, 6vw, 30px);
+    font-weight: 900;
+    letter-spacing: 8px;
+}
+
+.head-title,
+.support-title,
+.member-title{
+    position: relative;
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+/* เส้นใต้ */
+.head-title::after,
+.support-title::after,
+.member-title::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 150px;          /* ความยาวเส้น */
+    height: 4px;           /* ความหนาเส้น */
+    border-radius: 10px;
+}
+
+.head-title::after{
+    background: linear-gradient(90deg, transparent, #ff2b2b, transparent);
+    box-shadow: 0 0 20px #ff2b2b;
+}
+
+.support-title::after{
+    background: linear-gradient(90deg, transparent, #ffd000, transparent);
+    box-shadow: 0 0 20px #ffd000;
+}
+
+.member-title::after{
+    background: linear-gradient(90deg, transparent, #00c8ff, transparent);
+    box-shadow: 0 0 20px #00c8ff;
+}
+
+/* GRID */
+.grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+}
+
+.card{
+    display:flex;                /* เพิ่มบรรทัดนี้ */
+    justify-content:space-between;
+    align-items:center;
+
+    background: rgba(0, 20, 35, 0.6);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(0,240,255,0.6);
+    border-radius: 20px;
+    padding: 0px 30px;
+    width: 450px;
+    transition: all 0.35s ease;
+    box-shadow: 0 0 20px rgba(0,240,255,0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+/* เส้นเรืองแสงวิ่ง */
+.card::before{
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(120deg, transparent, rgba(0,240,255,0.5), transparent);
+    transform: translateX(-100%);
+    transition: 0.6s;
+}
+
+.card h3{
+    font-size:18px;
+    margin-bottom:12px;
+    letter-spacing:1px;
+}
+
+.card:hover::before{
+    transform: translateX(100%);
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 
+        0 0 20px rgba(0,240,255,0.6),
+        0 0 40px rgba(0,240,255,0.4);
+}
+
+.action-row{
+    display:flex;
+    gap:10px;
+}
+
+.badge,
+.facebook{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height:34px;
+    padding:0 18px;
+    border-radius:25px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.badge.head{ background:#ff3b3b; color:white; }
+.badge.support{ background:#ffd000; color:#000; }
+.badge.member{ background:#00c8ff; color:#000; }
+
+.facebook{
+    border:2px solid #00f0ff;
+    color:#00f0ff;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.facebook:hover{
+    background:#00f0ff;
+    color:#000;
+    box-shadow:0 0 15px #00f0ff;
+}
+
+.logo-box{
+    width:150px;
+    height:150px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.logo-box img{
+    width:80%;
+    height:80%;
+    object-fit:contain;
+}
+</style>
+</head>
+<body>
+
+<button onclick="history.back()" class="back-btn">
+    ⬅ ย้อนกลับ
+</button>
+
+<div class="header">
+    <h1>MEMBER LIST</h1>
+    <div class="subtitle">NONSENSE OFFICIAL MEMBERS</div>
+</div>
+
+<!-- HEAD -->
+<div class="section">
+    <h2 class="head-title">HEAD</h2>
+    <div class="count">4 MEMBERS</div>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Moto Godyouknow</h3>
+                <div class="action-row">
+                    <span class="badge head">HEAD</span>
+                    <a href="https://www.facebook.com/Moto.ImperialSermua/" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Fadel Godyouknow</h3>
+                <div class="action-row">
+                    <span class="badge head">HEAD</span>
+                    <a href="https://www.facebook.com/fadel.helgarost" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Bentz Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge head">HEAD</span>
+                    <a href="https://www.facebook.com/profile.php?id=100088271831784" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Senki Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge head">HEAD</span>
+                    <a href="https://www.facebook.com/sen.kuraiya" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- SUPPORT -->
+<div class="section">
+    <h2 class="support-title">SUPPORT</h2>
+    <div class="count">5 MEMBERS</div>
+    
+    <div class="grid">
+        
+        <div class="card">
+            <div class="card-left">
+                <h3>Snow Winterfell</h3>
+                <div class="action-row">
+                    <span class="badge support">SUPPORT</span>
+                    <a href="https://www.facebook.com/snow.wtfsmp?locale=th_TH" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <div class="card-left">
+                <h3>Ochin Zewell</h3>
+                <div class="action-row">
+                    <span class="badge support">SUPPORT</span>
+                    <a href="https://www.facebook.com/ochin.temgraph?locale=th_TH" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-left">
+                <h3>Noel Winterfell Alpha</h3>
+                <div class="action-row">
+                    <span class="badge support">SUPPORT</span>
+                    <a href="https://www.facebook.com/noel.alpha.475473" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Jamemy Zewellonprime</h3>
+                <div class="action-row">
+                    <span class="badge support">SUPPORT</span>
+                    <a href="https://www.facebook.com/jamemy.zewell?locale=th_TH" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Khay Lucky</h3>
+                <div class="action-row">
+                    <span class="badge support">SUPPORT</span>
+                    <a href="https://www.facebook.com/ceasawxahilhmusd?locale=th_TH" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- MEMBER -->
+<div class="section">
+    <h2 class="member-title">MEMBER</h2>
+    <div class="count">14 MEMBERS</div>
+
+    <div class="grid">
+
+        <!-- CARD -->
+        <div class="card">
+            <div class="card-left">
+                <h3>Argo Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/profile.php?id=61565378776783" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <!-- ทำซ้ำการ์ด -->
+        <div class="card">
+            <div class="card-left">
+                <h3>Gobelz Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/profile.php?id=61588500515557#" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Tunder Zewell</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/profile.php?id=61584908198081" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Pangping Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/pangping.stillfly?mibextid=wwXIfr&rdid=IGCVlS4rxKVVJzYM&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1NsXkqkXjb%2F#" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>MarCo Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/tuta.naja.7?rdid=MK9A5O9IO5hXJnUO&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1SjN7j17C2%2F#" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Blacklion Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/saylom.blackway" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>TER Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.instagram.com/ter_papawin?igsh=MThqbXl5dXRtdWNnMQ%3D%3D&utm_source=qr" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Nongsecret Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/nong.secret.frost" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Minje Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/nitirat.thammawart" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Thida Somyong</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/thida.somyong?rdid=yOKpYmWWXh0kBTOI&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DaYPLfF3J%2F#" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Monmanas Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/profile.php?id=61587835204448" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Axe Godmyhxnd</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/share/1FQ4BaayQu/?mibextid=wwXIfr" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Bevis Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/share/17dGdHNnyL/?mibextid=wwXIfr" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-left">
+                <h3>Fay Nonsense</h3>
+                <div class="action-row">
+                    <span class="badge member">MEMBER</span>
+                    <a href="https://www.facebook.com/folkk.17" target="_blank" class="facebook">FACEBOOK</a>
+                </div>
+            </div>
+            <div class="logo-box">
+                <img src="https://img2.pic.in.th/Logo1_3.png">
+            </div>
+        </div>
+        
+    </div> <!-- ✅ ปิด grid ตรงนี้ -->
+</div>
+
+</body>
+</html>
